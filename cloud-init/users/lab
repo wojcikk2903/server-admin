@@ -1,0 +1,10 @@
+#cloud-config
+
+users:
+  - name: lab
+    # This is temporary, should be removed later
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+runcmd:
+  - su lab
+  - ssh-keygen -f /home/lab/.ssh/id_rsa -t rsa -N ''
