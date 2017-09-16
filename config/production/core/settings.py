@@ -24,19 +24,16 @@ WOOCOMMERCE_CONSUMER_KEY    = 'ck_64934a0089e040aa273d2ed48aaee130c669c3a7'
 WOOCOMMERCE_CONSUMER_SECRET = 'cs_55c2d7e8edb977226ad27e568a7e076e980f8b95'
 WOOCOMMERCE_KEY_OWNER       = 'admin@nclab.com'
 
-#DATABASE = 'nclab@mongo3:27017'
-
 DATABASE = {
-    'host': 'mongodb://mongo3,mongo4,mongo5',
+    'host': 'mongodb://mongo01.prod.nyc1.do.nclab.com,mongo02.prod.nyc1.do.nclab.com,mongo03.prod.nyc1.do.nclab.com',
     'db': 'nclab',
     'read_preference': 'secondaryPreferred',
     'replica_set': 'nclabmongo'
     #'port': 27017
 }
 
-
-REMOTE_DB = "mongo3"
-REMOTE_TRANSLATIONS = "manager"
+REMOTE_MANAGER = "manager01.prod.nyc1.do.nclab.com"
+REMOTE_TRANSLATIONS = "manager01.prod.nyc1.do.nclab.com"
 
 LOG_NUM_BACKUPS = 240
 
@@ -61,8 +58,8 @@ LOG_STD = True
 
 CACHE_SIZE = 2048 # 2GB
 
-LOGSTASH_ADDRESS = 'manager'
-LOGSTASH_PORT = 7171
+# LOGSTASH_ADDRESS = 'manager'
+# LOGSTASH_PORT = 7171
 
 COOKIE_DOMAIN = ".nclab.com"
 
