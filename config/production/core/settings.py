@@ -25,20 +25,22 @@ WOOCOMMERCE_CONSUMER_SECRET = 'cs_55c2d7e8edb977226ad27e568a7e076e980f8b95'
 WOOCOMMERCE_KEY_OWNER = 'admin@nclab.com'
 
 DATABASE = {
-    'host': 'mongodb://mongo01.prod.nyc1.do.nclab.com,mongo02.prod.nyc1.do.nclab.com,mongo03.prod.nyc1.do.nclab.com',
+    'host': 'mongodb://int.mongo01.prod.nyc1.do.nclab.com,int.mongo02.prod.nyc1.do.nclab.com,'
+            'int.mongo03.prod.nyc1.do.nclab.com',
     'db': 'nclab',
     'read_preference': 'secondaryPreferred',
     'replica_set': 'nclabmongo'
     # 'port': 27017
 }
 
-REMOTE_MANAGER = "manager01.prod.nyc1.do.nclab.com"
-REMOTE_TRANSLATIONS = "manager01.prod.nyc1.do.nclab.com"
+REMOTE_MANAGER = "int.manager01.prod.nyc1.do.nclab.com"
+REMOTE_TRANSLATIONS = "int.manager01.prod.nyc1.do.nclab.com"
 
 LOG_NUM_BACKUPS = 240
 
 UPDATE_SERVICE = '/home/lab/nclab service update'
-UPDATE_CHROOT = 'ssh distribution@truckee /home/distribution/nclab-distribution-master/install.sh -r'
+UPDATE_CHROOT = 'ssh distribution@int.distro01.prod.nyc1.do.nclab.com ' \
+                '/home/distribution/nclab-distribution-master/install.sh -r '
 
 WEBSITE_URL = 'https://nclab.com'
 ADMIN_URL = 'https://admin.nclab.com'
@@ -69,10 +71,10 @@ IOLOOP_ALARM_TIME = 60
 
 SERVICES = [
     # WHEN YOU ARE COMMENTING NODES OUT PLEASE WRITE DOWN THE REASON
-    {'id': 'node1', 'hostname': 'node1', 'user': 'lab', 'port': 9000, 'name': 'Node 1',
+    {'id': 'node1', 'hostname': 'int.node01.prod.nyc1.do.nclab.com', 'user': 'lab', 'port': 9000, 'name': 'Node 1',
      'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
      'free': True, 'load': 1},
-    {'id': 'node2', 'hostname': 'node2', 'user': 'lab', 'port': 9000, 'name': 'Node 2',
+    {'id': 'node2', 'hostname': 'int.node02.prod.nyc1.do.nclab.com', 'user': 'lab', 'port': 9000, 'name': 'Node 2',
      'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
      'free': True, 'load': 1},
 ]
