@@ -29,7 +29,9 @@ DATABASE = {
             'int.mongo03.prod.nyc1.do.nclab.com',
     'db': 'nclab',
     'read_preference': 'secondaryPreferred',
-    'replica_set': 'nclabmongo'
+    'replica_set': 'nclabmongo',
+    'username': 'ap_core',
+    'password': ''
     # 'port': 27017
 }
 
