@@ -3,33 +3,33 @@
 MAILGUN_DOMAIN = "mg.nclab.com"
 MAILGUN_API_KEY = "key-f08f536e884e408aa5f579328dd353cc"
 
-EMAIL_HOST              = 'smtp.mailgun.org' #'10.8.3.1'
-EMAIL_PORT              = 25
-EMAIL_SUBJECT_PREFIX    = '[NCLab]'
-EMAIL_USER              = 'postmaster@mg.nclab.com'
-EMAIL_PASS              = '0a8a03da1ae49717f3e71d38ad4fa995'
+EMAIL_HOST = 'smtp.mailgun.org'  # '10.8.3.1'
+EMAIL_PORT = 25
+EMAIL_SUBJECT_PREFIX = '[NCLab]'
+EMAIL_USER = 'postmaster@mg.nclab.com'
+EMAIL_PASS = '0a8a03da1ae49717f3e71d38ad4fa995'
 
-DEFAULT_FROM_EMAIL   = 'NCLab Team <office@nclab.com>'  #'NCLab Team <no-reply@nclab.com>'
-SERVER_EMAIL         = DEFAULT_FROM_EMAIL
-BUGREPORT_EMAIL      = 'feedback@nclab.com'
-ERRORS_TO_EMAIL      = 'app-alerts@nclab.com'
-SUPPORT_EMAIL        = 'office@nclab.com'
-OUTBOX_EMAIL         = 'outbox@nclab.com'
+DEFAULT_FROM_EMAIL = 'NCLab Team <office@nclab.com>'  # 'NCLab Team <no-reply@nclab.com>'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+BUGREPORT_EMAIL = 'feedback@nclab.com'
+ERRORS_TO_EMAIL = 'app-alerts@nclab.com'
+SUPPORT_EMAIL = 'office@nclab.com'
+OUTBOX_EMAIL = 'outbox@nclab.com'
 COURSE_FEEDBACK_EMAIL = 'coursefeedback@nclab.com'
-ADMIN_NOTIFY_EMAIL   = 'admin-notify@nclab.com'
-FUNNEL_EMAIL         = 'funnel@nclab.com'
+ADMIN_NOTIFY_EMAIL = 'admin-notify@nclab.com'
+FUNNEL_EMAIL = 'funnel@nclab.com'
 
-WOOCOMMERCE_SERVER          = 'https://nclab.com/wp-json/wc/v2/'
-WOOCOMMERCE_CONSUMER_KEY    = 'ck_64934a0089e040aa273d2ed48aaee130c669c3a7'
+WOOCOMMERCE_SERVER = 'https://nclab.com/wp-json/wc/v2/'
+WOOCOMMERCE_CONSUMER_KEY = 'ck_64934a0089e040aa273d2ed48aaee130c669c3a7'
 WOOCOMMERCE_CONSUMER_SECRET = 'cs_55c2d7e8edb977226ad27e568a7e076e980f8b95'
-WOOCOMMERCE_KEY_OWNER       = 'admin@nclab.com'
+WOOCOMMERCE_KEY_OWNER = 'admin@nclab.com'
 
 DATABASE = {
     'host': 'mongodb://mongo01.prod.nyc1.do.nclab.com,mongo02.prod.nyc1.do.nclab.com,mongo03.prod.nyc1.do.nclab.com',
     'db': 'nclab',
     'read_preference': 'secondaryPreferred',
     'replica_set': 'nclabmongo'
-    #'port': 27017
+    # 'port': 27017
 }
 
 REMOTE_MANAGER = "manager01.prod.nyc1.do.nclab.com"
@@ -50,13 +50,13 @@ CDN_WEB = ["https://stweb.nclab.com", "https://stweb2.nclab.com", "https://stweb
 
 PORTS = [8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007]
 DEBUG = False
-VALIDATE_EMAILS=True
+VALIDATE_EMAILS = True
 DAEMON = True
 
-WEBSERVER_GCORE = False # Disabled because GDB does not work anyways
+WEBSERVER_GCORE = False  # Disabled because GDB does not work anyways
 LOG_STD = True
 
-CACHE_SIZE = 2048 # 2GB
+CACHE_SIZE = 2048  # 2GB
 
 # LOGSTASH_ADDRESS = 'manager'
 # LOGSTASH_PORT = 7171
@@ -68,13 +68,11 @@ PAYPAL_RECEIVER_EMAIL = 'office@nclab.com'
 IOLOOP_ALARM_TIME = 60
 
 SERVICES = [
-    #WHEN YOU ARE COMMENTING NODES OUT PLEASE WRITE DOWN THE REASON
-    {'id': 'node1', 'hostname':'node1', 'user': 'lab', 'port': 9000, 'name':'Node 1', 'engines':['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True, 'free': True, 'load': 1},
-    {'id': 'node2', 'hostname':'node2', 'user': 'lab', 'port': 9000, 'name':'Node 2', 'engines':['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True, 'free': True, 'load': 1},
-# Shibo was always a problem, so I am disconnecting it (Pavel).
-#{'id': 'shibo', 'hostname':'shibo', 'user': 'lab', 'port': 9000, 'name':'Shibo', 'engines':['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True, 'free': False },
-# Mac was returned to UNR (Pavel)
-#{'id': 'mac', 'hostname':'mac', 'user': 'lab', 'port': 9000, 'name':'Mac', 'engines':['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3'], 'commercial': False, 'free': True },
-# Farad was returned to UNR (Pavel)
-#{'id': 'farad', 'hostname':'farad', 'user': 'lab', 'port': 9000, 'name':'Farad', 'engines':['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3'], 'commercial': False, 'free': True },
-# {'id': 'villain', 'hostname':'villain', 'user': 'lab', 'port': 9000, 'name':'Villain', 'engines':['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True, 'free': True, 'load': 3} # Villain will serve other purpose 18.05.2017
+    # WHEN YOU ARE COMMENTING NODES OUT PLEASE WRITE DOWN THE REASON
+    {'id': 'node1', 'hostname': 'node1', 'user': 'lab', 'port': 9000, 'name': 'Node 1',
+     'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
+     'free': True, 'load': 1},
+    {'id': 'node2', 'hostname': 'node2', 'user': 'lab', 'port': 9000, 'name': 'Node 2',
+     'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
+     'free': True, 'load': 1},
+]
