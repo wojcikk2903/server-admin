@@ -7,4 +7,4 @@ users:
     groups: sudo
 runcmd:
   - su lab
-  - ssh-keygen -f /home/lab/.ssh/id_rsa -t rsa -N ''
+    ssh-keygen -f /home/lab/.ssh/id_rsa -t rsa -N ''
