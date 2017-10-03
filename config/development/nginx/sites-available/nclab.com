@@ -26,3 +26,22 @@ server {
 	    add_header 'Access-Control-Allow-Origin' '*';
     }
 }
+
+# this part takes care of nclab core accessible from vpn, we use only for load balancing of nodes requests
+server {
+    listen 80;
+    server_name  10.136.72.102;
+
+    client_max_body_size 50M;
+
+    location / {
+        proxy_pass http://frontends;
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_read_timeout 3600;
+        proxy_redirect off;
+    }
+}
+
