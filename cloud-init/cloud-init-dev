@@ -1,0 +1,167 @@
+#cloud-config
+timezone: America/Los_Angeles
+package_upgrade: true
+packages: 
+  - mc
+  - htop
+  - iotop
+  - rsync
+  - iptables
+  - iptables-persistent
+  - vim-nox
+  - ntp
+  - ntpdate
+
+users: 
+  - name: andrey
+  - name: andrey
+    gecos: "Andrey Suchkov"
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjsQa+lN5r1O9SSbR9eGX0XR+Z1zfHbxFhmrzfVNZGxBhBwmWW6EPtWrbQASUa2giVwMrZcRImnpoit5mLVd8a0JLaim87WmlYTZioWaPYeDdQ9n0ewMAjPG2YPilF2WYn+DdUEapnPX0At3LCME+T2V0oPRzcxg8jPcbniIZH9Mr61pr+f6a/+FNePZKD86QceTpZreIMxcqUU6L2Iov/D1ZdD0V/mtkKpBbL2qEPCQLY9ahpHjXmU8Zz8h1W+pi2HPJgtPl4o9mIc3zvZdwQVI+58AiRnZDB4GcN+24QvuveHpfOffj4wPLsYgaTOmjOoaTQTTUAjy3KgANKdDMj andrey@nclab.com"
+    uid: "1114"
+
+  - name: bartek
+    gecos: "Bartek Filon"
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC29fBmQxcp7L/dMB50i2AvZjVx4r4aH/GY/Gm0AeFBdm98cYORE93+cec89urQK//SyvUSZDpc/EWZbCNxhHCXGFbObMew/U9jY+X+a5IalZsw+g7JWcFqUtvazLmAem4xUgVM9CLzPFCWXCfxvubpz/yfBIqJ0O+gfa+bPiQp7i+zk80gJ7fxALo1P6lJ3mopXcTW30vnKjT953BwcIctgSo0AfN+48IFjBT7E1zA4YxFPdXiHi/jxZYhanLarfVhsEsnDs6nRv7Z90kFyMxBjMxdz4cK2vXUHZktiDAzB+qQFdFWP7DS4i85J0tau4YD/IGvy+QR3rKbb8E4uZBPxlK/iiuldRJGyaWn6W71ar3IdYm1wOBliLqatw2y85i91cBdZ/8bCkk42va1/1cPIWMqK0f+uRCxA85z1fAlyX9//Cx/FmtMSWA5vU6VmcT9VBP2td03iSEtZJ3llsfbmSUKO/q1EmTUMboK1yV8M0zs7U3LwfZmqSXZWvWbv28j61/sqgPPa27NVRGIHLW6ibbHiCgDCPx9OpN8fJidu0eAO4AqViVit9yNjDAGnDic3peGmDhDqQLF0Mktb/PbKcNts9gnvLZoBRKWdqYxAG1MuI+RSTjOuc6N+qpgl2fJciQFhAeAIRW49IoLxyW7g3Z2amWyL7003AiNHMhapQ== filonbar@gmail.com"
+    uid: "1116"
+  
+  - name: bjech 
+    gecos: "Bernard Jech"
+    groups: sudo
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAoPs4D/iOriypG+kh3/aDkrXhtG2DTDACdaExliuB6MGsZhmyNdnr9tha/9n4RAHvIbqpEkdmRFTNtBXzZ7Dwv5gfJ8IZ8N/Ghj/70rKrdx+MqrjAF/qfi5zl5BmMZ74q8EwkWDOXfoUDDNSTFQJsnw0/UzmQXUPJYLrIfsBbIHiEdz4ltMGjSiWKKZYeuQFx+N/nBCbk1sp1zc+VAKyIVOE1VQrWwgyjl7kX8A8iPapX0epNzOcxZ3X6A494wiGbs8+jpi74Bi8Dg0yOuAPv1PeoZQjwbaQCzo42rVk5Q0vNRtJu7Dy37a9/Fn7GTGG5+cdvU7zHTcHT7cS/ngsMHQ== bjech"
+    uid: "1101"
+
+  - name: filip
+    gecos: "Filip Faktor"
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAotBPfMKW+1nbnStp2KgiZVVfpsDls/FQYgmZarOu8UMNz48VazYK01RCzLI/Nb/68gG/rXHaQo8wbdVSgtZVZQbi1bDbDTlzRwVR9WiGyKxAR451NmumyYuE3lWqB/TgbvmeO/8z6yVsADS5D5GWGVcla3986+0Tq4cbT2jyN2i+TaKZpHBkJOv4nGd4aZ/qM6v2eJYtCwz6/EuqBETYQQyjGGZJ193bMx8qF3Qrmr5IX4zGAsYX6fOYkfZ1ZAx1VgKnFI5e9oa9Biwa1205ECFVTTXhlPEOlAZrgY4diuj77oTx0f259N8SZlM7EWxK2N0ag8lR084nhTs5v1odjw== filip@nclab.com"
+    uid: "1102"
+
+  - name: jesus
+    gecos: "Jesus Emanuel"
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDcQZA9tDs8FW4i7h9wB6/5mkSOSvPTBBNyNmRHbU5GzhDqN2A4S+PiAsGaZbMRxdyqoL7NSJrS/hGgj/pTH6zI34U0LaQmxIXvrGGcIpgRxccKgyCteXYC7Y47BdamOMck5BKOl/JeQ8KGNRBhctXSTelYZJAAQ5Nv55oebn2HaSLfHD/USNNLydDJyJ0VuKFmzTWzRZa9Eo9REJUiMSfVg0OWh4/mcWNfKNIghn7LZKLugAAGPZ19FnuuDV4AjN/XaD75v0IQFu66j8aU/MGTLH101tNILiD/PMz4715YJkMPOlM1bTKT9YczohNlwLu1dXRVd/LeVHw6NycYiqAvCVurhZ0bwYaCxl5RQCGXVQSqOD62L4qMINA/rMRL8X6kL4uHXEdJzgKfsr2jxVZBG/gtmz9EtXZn4tCHJzQcKMVS0MQpjfwj/w7ejrcqh1gdsdbmPpC7h1yNdEnEkVNKVjrwaxqbrp1wzOxCnjDMMymoRQfAng192RqlI+/gGWf6QI42b6Yw7KXNnHLJicAMjgIbyboRKBmX73cuTKS2FfNl9S3OOKv3cW4C/PUYdyqs35nBG8MIlAmrYOlI6MgCowa40Ps48CesAiEfqUrDmajmCioRDUy2TgqldM7LbFiuHhT1JYfOZhqlA2y4eToFx5CWYibjuzMc9tO8ymGhhQ== jesus@nclab.com"
+    uid: "1115"
+
+  - name: martin
+    gecos: "Martin Novak"
+    groups: sudo
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxQDyKz7LTJdTqyxsLeANoh6hFxu5rPQBKgATD3zpk0en+EdkyqFCeuYWNoFMCS3YM2TWkhCcM0iq4q7KluBGz8lxGZvxG8Dqupx1jlb52sBqdJoVxtD47HPCCQBNiVhBNzeko6SLVXVZlUda1LgqxFe8onBBjvTC1+aMKkTiIlp+J8KaaeKsoHuU3fa5hw/YCCSmPRAW7uilIZlc9JxznPyJ84WGmFDmfqHleO2U2bGnB/2LvUQaUG5WqHdZTRwufOqJvBuvvfNXxZ+kFHUzIH4kh7QnaB8vpnyYJZmbS4JfhA+63WHlDqbJo2osebtWUVbEC3+5axUj4lc5+wdCP martin@nclab.com"
+    uid: "1108"
+
+  - name: pavel
+    gecos: "Pavel Solin"
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXKznb6vvJM4HRzWqWHxONUaUptdh+lAA93xSqfhpGJeJZMzRk/DhKs02LjED7yV6ADZsmg3IjhJh7uiRBdO72LlxUp+fgkLaikj5pHlTRUDGeOqJz3MPhA1TJCnpSyEAB4dBlGc5F3vlZ3Rgd3DpEEXVJd/JrB3CaPa39J8l1mJW5xHJ24Ic71pqx1jCVszCdqSNWAKUtU6uBuJl1uZv7SVz6gud6qUPt2E2fmUlVyo4cWFMGhBc0Z9wqtneaU5bzWu8jAr6MthG/oja8yVlnhrBocsfPcHtfeBGmkPyxdZ8SkkmEEnt3cnzwoTwgzfhqnn7q58VFfhiDdNWMwImN pavel@nclab.com"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLK2ihxOQ7Csiie9AHcJ4RFJU2Ab2U8/5wIx7HFUsasR5zpIeVjDtKl/2WuKFQCpM0H+TkcGk4TNsZLheJNAiJwXnj/yeEOqwLILR0KviHtx1UoeyF7MRFFmvtTHR2jVL7EzYv2fz4RKW/C2O9kuL7ZcNgPEzHD7ISRKj0+M2yC8wZJw4/jOpMRTrrph7JJXQl8oMnLujEczuszo5JFfTYCja7Ph++gPEwRd/AIs5uswu4WfNhxkMEcsT6HQzzfH4B2Y+rzaziHAAKE2eQOA0UvvW8ht5orGugYLWxYefWRXKWGBYeqA1l7WYVi+1rxsiM7Fjdda/cGatz2VUekTLv pavel@nclab.com JuiceSSH"
+    uid: "1109"
+
+  - name: petr
+    gecos: "Petr Lukas"
+    groups: sudo
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDN93ThmdhjITFZKFikLyAUJzu3Q1wBUtOWhBFVeE/Yq6mJ+OWcvE2otvmvHj/kPb2Hy6U+3hRRogJ5o0CkKQE/JnXZddwsJ4HkHTwdHpxeeFVSyfpAx9nU61fMLfagzYoxscgEXK9XEFXdgpg3ByI4/lp3KeMwc8rHLS6rXork0x4WPsXGftxsQ7Sg0mSgzjus6vHfHaN0LBR5sNUDmzMPnxoH1QSL4rZimE2KGmeyyUspXHvl9cov88XFTekcsFuS9z9QMktwMnP0/jK1mqZKaCqxn8teUK+Is80Og985yNxROtz+lLGc9h7Gi9D/FdrNktPK3RtyCFDWzOXHAyf3 lukas.petr.cz@gmail.com"
+    uid: "1110"
+
+  - name: pmuller
+    gecos: "Pavel Muller"
+    groups: sudo
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCVTZSdl7oq8AMJy84ScIa3BCp5/I4SajnKDBOdoT9ju4EsOjd2hF5jRadQP9t9LGTEJfyN6zGD8n9GU0otmILx8Omv9Iq3mf5iavh7+qYNVn8uDTURpx5Ijq8LZ4JVPKjDVub3aRkYdDBpernWme0XGyP0FFrD9lnsmNxnHkCOmBx2McJItDk10oW9xQn0nUQGbjOisq789hy5YwlNCHXZMr0xYshY6lQDahmcxzBhWYOdIOh8DHaNche80ksTLwCuyuA2Sc3AHMlqegApjIWxIaHs0MJz0aGFP3907chRYHehMgdNkeTAkIW7E0cfflVgVofgDUsPN9IXXdP1SZph pmuller@nclab.com"
+    uid: "1111"
+
+  - name: wojcikk
+    gecos: "Krzysztof Wojcik"
+    groups: sudo
+    shell: /bin/bash
+    ssh-authorized-keys: 
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDM/IDAqxiaPEtmR/IGQ498vmiMlPIcAkZ/IU0bZ9s8DCyiCZy6A+f0NC4jkXJQg8ArjQj95OO83oc4YZ+qrMG4F5YQMh6EqnDWcSGbzCQPAk/CzzlkRLueaYbf146AIGCxIXQP3PwFVGBefvH9sTWlVm06dp3oMU3ZoutOezAs1DyQ4vT4DLH1ggUcuwaiMN/mZ48QCqlCH973YeRMQk6PpemERRnTvMd8S0hQcYOtXv/5d8/2YFpG0hjhpRikDLf+TY50xiTk6j4Kxy+v4pUXRbMOsP8zXxhgxiovTm9H4POuW7MG0e1s3uK2oeaUikcTLcIXtOlwZKjxv6zmr6GZ wojcikk@wojcikk-sy"
+    uid: "1113"
+write_files: 
+  - path: /etc/ssh/sshd_config
+    content: |
+        Port 2022
+        Protocol 2
+        HostKey /etc/ssh/ssh_host_rsa_key
+        HostKey /etc/ssh/ssh_host_dsa_key
+        HostKey /etc/ssh/ssh_host_ecdsa_key
+        HostKey /etc/ssh/ssh_host_ed25519_key
+        UsePrivilegeSeparation yes
+        KeyRegenerationInterval 3600
+        ServerKeyBits 1024
+        SyslogFacility AUTH
+        LogLevel INFO
+        LoginGraceTime 120
+        PermitRootLogin without-password
+        StrictModes yes
+        RSAAuthentication yes
+        PubkeyAuthentication yes
+        IgnoreRhosts yes
+        RhostsRSAAuthentication no
+        HostbasedAuthentication no
+        PermitEmptyPasswords no
+        ChallengeResponseAuthentication no
+        PasswordAuthentication no
+        X11Forwarding no
+        X11DisplayOffset 10
+        PrintMotd no
+        PrintLastLog yes
+        TCPKeepAlive yes
+        AcceptEnv LANG LC_*
+        Subsystem sftp /usr/lib/openssh/sftp-server
+        UsePAM yes
+
+  - path: /etc/iptables/rules.v4
+    content: |
+        *filter
+        :INPUT ACCEPT [0:0]
+        :FORWARD DROP [0:0]
+        :OUTPUT ACCEPT [0:0]
+        :INPUT_EXT - [0:0]
+        :INPUT_INT - [0:0]
+        -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+        -A INPUT -i eth0 -j INPUT_EXT
+        -A INPUT -i eth1 -j INPUT_INT
+        -A INPUT -i lo -j ACCEPT
+        -A INPUT_EXT -p icmp -j ACCEPT
+        #allow all development machines from private network interface
+        #compute01.dev.nyc1.do.nclab.com
+        -A INPUT_INT -s 10.136.53.209 -j ACCEPT
+        #core03.dev.nyc1.do.nclab.com
+        -A INPUT_INT -s 10.136.72.226 -j ACCEPT 
+        #core02.dev.nyc1.do.nclab.com
+        -A INPUT_INT -s 10.136.72.102 -j ACCEPT
+        #desktop01.dev.nyc1.do.nclab.com
+        -A INPUT_INT -s 10.136.4.55 -j ACCEPT
+        #web01.dev.nyc1.do.nclab.com
+        -A INPUT_INT -s 10.136.47.86 -j ACCEPT
+        #core04.dev.nyc1.do.nclab.com
+        -A INPUT_INT -s 10.136.57.134 -j ACCEPT
+        #zabbix01.prod.nyc1.do.nclab.com
+        -A INPUT_INT -s 10.136.46.96 -j ACCEPT
+        # SSH
+        -A INPUT_EXT -p tcp --dport 2022 -j ACCEPT
+        #HTTP
+        -A INPUT_EXT -p tcp -m tcp --dport 80 -j ACCEPT
+        #HTTPS
+        -A INPUT_EXT -p tcp -m tcp --dport 443 -j ACCEPT
+        #mess
+        -A INPUT_EXT -j DROP
+        -A INPUT_INT -j DROP
+        COMMIT
+runcmd:
+  - iptables-restore /etc/iptables/rules.v4
+
+final_message: "<Cloud-init script was finished without error.>"
