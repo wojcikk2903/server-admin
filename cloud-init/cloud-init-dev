@@ -6,8 +6,6 @@ packages:
   - htop
   - iotop
   - rsync
-  - iptables
-  - iptables-persistent
   - vim-nox
   - ntp
   - ntpdate
