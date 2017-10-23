@@ -123,45 +123,4 @@ write_files:
         Subsystem sftp /usr/lib/openssh/sftp-server
         UsePAM yes
 
-  - path: /etc/iptables/rules.v4
-    content: |
-        *filter
-        :INPUT ACCEPT [0:0]
-        :FORWARD DROP [0:0]
-        :OUTPUT ACCEPT [0:0]
-        :INPUT_EXT - [0:0]
-        :INPUT_INT - [0:0]
-        -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
-        -A INPUT -i eth0 -j INPUT_EXT
-        -A INPUT -i eth1 -j INPUT_INT
-        -A INPUT -i lo -j ACCEPT
-        -A INPUT_EXT -p icmp -j ACCEPT
-        #allow all development machines from private network interface
-        #compute01.dev.nyc1.do.nclab.com
-        -A INPUT_INT -s 10.136.53.209 -j ACCEPT
-        #core03.dev.nyc1.do.nclab.com
-        -A INPUT_INT -s 10.136.72.226 -j ACCEPT 
-        #core02.dev.nyc1.do.nclab.com
-        -A INPUT_INT -s 10.136.72.102 -j ACCEPT
-        #desktop01.dev.nyc1.do.nclab.com
-        -A INPUT_INT -s 10.136.4.55 -j ACCEPT
-        #web01.dev.nyc1.do.nclab.com
-        -A INPUT_INT -s 10.136.47.86 -j ACCEPT
-        #core04.dev.nyc1.do.nclab.com
-        -A INPUT_INT -s 10.136.57.134 -j ACCEPT
-        #zabbix01.prod.nyc1.do.nclab.com
-        -A INPUT_INT -s 10.136.46.96 -j ACCEPT
-        # SSH
-        -A INPUT_EXT -p tcp --dport 2022 -j ACCEPT
-        #HTTP
-        -A INPUT_EXT -p tcp -m tcp --dport 80 -j ACCEPT
-        #HTTPS
-        -A INPUT_EXT -p tcp -m tcp --dport 443 -j ACCEPT
-        #mess
-        -A INPUT_EXT -j DROP
-        -A INPUT_INT -j DROP
-        COMMIT
-runcmd:
-  - iptables-restore /etc/iptables/rules.v4
-
 final_message: "<Cloud-init script was finished without error.>"
