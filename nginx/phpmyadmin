@@ -1,0 +1,36 @@
+# everything is redirected to https (strarting dot in server_name is for *. and no prefix)
+server {
+    listen      80;
+    server_name .phpmyadmin.dev.nclab.com;
+    rewrite     ^   https://$host$request_uri? permanent;
+}
+
+server {
+	listen 443 ssl;
+
+	root /var/www/phpmyadmin;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name phpmyadmin.dev.nclab.com;
+
+	ssl_certificate        /etc/ssl/certs/STAR-dev-ssl-bundle.crt;
+	ssl_certificate_key    /etc/ssl/private/star_dev_nclab_com.key;
+
+location / {
+	root /var/www/phpmyadmin;
+	index index.php index.html index.htm;
+	location ~ ^/phpmyadmin/(.+\.php)$ {
+		try_files $uri =404;
+		root /var/www/phpmyadmin;
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+		fastcgi_connect_timeout 120s;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include /etc/nginx/fastcgi_params;
+	}
+
+}
+
+}
