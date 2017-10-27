@@ -31,3 +31,4 @@ echo "SHOW DATABASES;" | mysql -h $1 -s | (
         sleep 1
     done
 )
+ 
