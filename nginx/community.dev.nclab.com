@@ -18,8 +18,8 @@ server {
     ssl_stapling on;
     ssl_stapling_verify on;
 
-    ssl_certificate        /etc/nginx/ssl-keys/star.nclab.com_2018/star.nclab.com.bundle.crt;
-    ssl_certificate_key    /etc/nginx/ssl-keys/star.nclab.com_2018/star.nclab.com.key;
+	ssl_certificate        /etc/ssl/certs/STAR-dev-ssl-bundle.crt;
+	ssl_certificate_key    /etc/ssl/private/star_dev_nclab_com.key;
 
     add_header Strict-Transport-Security max-age=31536000;
 
