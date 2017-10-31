@@ -20,7 +20,7 @@ upstream php-devel {
 # everything is redirected to https (strarting dot in server_name is for *. and no prefix)
 server {
     listen      80;
-    server_name .dev.nclab.com;
+    server_name web05.dev.nclab.com;
     rewrite     ^   https://$host$request_uri? permanent;
 }
 
@@ -28,7 +28,7 @@ server {
 # main domain, takes care of WP
 server {
     listen 443 default ssl;
-    server_name 	   www.dev.nclab.com;
+    server_name 	   web05.dev.nclab.com;
 
     ssl_stapling on;
     ssl_stapling_verify on;
