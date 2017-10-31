@@ -6,14 +6,14 @@ upstream php {
 # everything is redirected to https (strarting dot in server_name is for *. and no prefix)
 server {
     listen          80;
-    server_name     .hoc.dev.nclab.com;
+    server_name     hoc05.dev.nclab.com;
     rewrite     ^   https://$host$request_uri? permanent;
 }
 
 # root part takes care of WP
 server {
     listen 443 ssl;
-    server_name            hoc.dev.nclab.com;
+    server_name            hoc05.dev.nclab.com;
 	ssl_certificate        /etc/ssl/certs/STAR-dev-ssl-bundle.crt;
 	ssl_certificate_key    /etc/ssl/private/star_dev_nclab_com.key;
     client_max_body_size 50M;
@@ -54,7 +54,7 @@ server {
     }
 
     location = / {
-        return 301 https://hoc.dev.nclab.com/karel/;
+        return 301 https://hoc05.dev.nclab.com/karel/;
     }
 
     # Karel HOC, internal rewrite of core requests from /karel/.../... to /.../...
