@@ -6,14 +6,14 @@ upstream php7 {
 # everything is redirected to https (strarting dot in server_name is for *. and no prefix)
 server {
     listen      80;
-    server_name .community.dev.nclab.com;
+    server_name .community05.dev.nclab.com;
     rewrite     ^   https://$host$request_uri? permanent;
 }
 
 # main domain, takes care of WP
 server {
     listen 443 ssl;
-    server_name 	   community.dev.nclab.com;
+    server_name 	   community05.dev.nclab.com;
 
     ssl_stapling on;
     ssl_stapling_verify on;
