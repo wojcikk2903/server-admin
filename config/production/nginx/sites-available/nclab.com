@@ -52,8 +52,8 @@ server {
     ssl_stapling on;
     ssl_stapling_verify on;
 
-    ssl_certificate        /etc/ssl/crt/desktop.nclab.com.crt;
-    ssl_certificate_key    /etc/ssl/private/desktop.nclab.com.key;
+    ssl_certificate        /etc/ssl/certs/STAR_nclab_com.crt;
+    ssl_certificate_key    /etc/ssl/private/STAR_nclab_com.key;
 
     add_header Strict-Transport-Security max-age=31536000;
 
@@ -61,20 +61,29 @@ server {
 
     set $root /home/lab/core/static;
 
-    error_page 403 /error403.html;
-    error_page 502 /error502.html;
+    error_page 404 /error/404.html;
+    error_page 502 /error/maintenance.html;
+
+    set $setxreal $http_x_real_ip;
+    if ($http_x_real_ip = "") {
+        set $setxreal $remote_addr;
+    }
 
     location / {
         proxy_pass http://frontends;
         proxy_pass_header Server;
         proxy_set_header Host $http_host;
+
+        #add_header X-Testing $setxreal;
+        proxy_set_header X-Real-IP $setxreal;
+
         proxy_set_header X-Scheme $scheme;
         proxy_read_timeout 3600;
         proxy_redirect off;
-	    add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Origin' '*';
     }
 
-# static content is served directly
+    # static content is served directly
     location ^~ /static/ {
         alias $root/;
 
@@ -84,12 +93,12 @@ server {
 
     }
 
-# we should probably rewrite it back to wp error pages
-    location ~ ^/error\d\d\d.html$ {
-        root $root/html/femhub/;
+    # we should probably rewrite it back to wp error pages
+    location ~ ^/error/(.*).html$ {
+        root $root/resources/html/;
     }
 
-# every browser asks for favicon
+    # every browser asks for favicon
     location = /favicon.ico {
         log_not_found off;
         access_log off;
@@ -107,7 +116,7 @@ server {
 # this part takes care of nclab core accessible from vpn, we use only for load balancing of nodes requests
 server {
     listen 80;
-    server_name  10.8.3.1;
+    server_name  int.core01.prod.nyc1.do.nclab.com;
 
     client_max_body_size 50M;
 
@@ -115,7 +124,7 @@ server {
         proxy_pass http://frontends;
         proxy_pass_header Server;
         proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
+        #proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Scheme $scheme;
         proxy_read_timeout 3600;
         proxy_redirect off;
@@ -131,7 +140,7 @@ server {
     #ssl_stapling on;
     #ssl_stapling_verify on;
 
-    ssl_certificate        /etc/ssl/crt/STAR_nclab_com.crt;
+    ssl_certificate        /etc/ssl/certs/STAR_nclab_com.crt;
     ssl_certificate_key    /etc/ssl/private/STAR_nclab_com.key;
 
     add_header Strict-Transport-Security max-age=31536000;
@@ -140,8 +149,8 @@ server {
 
     set $root /home/lab/core/static;
 
-    error_page 403 /error403.html;
-    error_page 502 /error502.html;
+    error_page 404 /error404.html;
+    error_page 502 /maintenance.html;
 
     location / {
         auth_basic      "Restricted";
@@ -167,14 +176,14 @@ server {
 
 # we should probably rewrite it back to wp error pages
     location ~ ^/error\d\d\d.html$ {
-        root $root/html/femhub/;
+        root $root/html/;
     }
 
 # every browser asks for favicon
     location = /favicon.ico {
         log_not_found off;
         access_log off;
-        rewrite (.*) /static/img/femhub/favicon.ico;
+        rewrite (.*) /static/resources/images/femhub/favicon.ico;
     }
 
     location = /robots.txt {

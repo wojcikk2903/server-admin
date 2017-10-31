@@ -1,0 +1,1 @@
+These files should be placed in /home/lab
