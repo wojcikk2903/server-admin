@@ -1,0 +1,7 @@
+1. vim /etc/systemd/system/mongodb-hugepage-fix.service
+2. insert content of the file 'mongodb-hugepage-fix' here and save
+3. systemctl daemon-reload
+4.systemctl start mongodb-hugepage-fix
+5.systemctl enable mongodb-hugepage-fix
+
+Now is THP disabled persistently. 
