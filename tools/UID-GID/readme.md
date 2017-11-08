@@ -3,7 +3,7 @@
 2. A server that does not have same UID for user 'lab' (for example)  
 3. Find new UID & GID in the spreadsheet (1000 for user 'lab')
 4. Connect via SSH to the target server and execute 'id lab'
-5. You uid=1004(lab) gid=1004(lab) groups=1004(lab)
+5. You get: uid=1004(lab) gid=1004(lab) groups=1004(lab)
 6. Copy scripts changeUID.sh and changeGID.sh from Github to the target server into /root folder
 7. Make them executable 'chmod +x *.sh'
 8. Run: changeUID.sh lab 1004 1000
