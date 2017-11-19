@@ -62,6 +62,7 @@ users:
     ssh-authorized-keys: 
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXKznb6vvJM4HRzWqWHxONUaUptdh+lAA93xSqfhpGJeJZMzRk/DhKs02LjED7yV6ADZsmg3IjhJh7uiRBdO72LlxUp+fgkLaikj5pHlTRUDGeOqJz3MPhA1TJCnpSyEAB4dBlGc5F3vlZ3Rgd3DpEEXVJd/JrB3CaPa39J8l1mJW5xHJ24Ic71pqx1jCVszCdqSNWAKUtU6uBuJl1uZv7SVz6gud6qUPt2E2fmUlVyo4cWFMGhBc0Z9wqtneaU5bzWu8jAr6MthG/oja8yVlnhrBocsfPcHtfeBGmkPyxdZ8SkkmEEnt3cnzwoTwgzfhqnn7q58VFfhiDdNWMwImN pavel@nclab.com"
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLK2ihxOQ7Csiie9AHcJ4RFJU2Ab2U8/5wIx7HFUsasR5zpIeVjDtKl/2WuKFQCpM0H+TkcGk4TNsZLheJNAiJwXnj/yeEOqwLILR0KviHtx1UoeyF7MRFFmvtTHR2jVL7EzYv2fz4RKW/C2O9kuL7ZcNgPEzHD7ISRKj0+M2yC8wZJw4/jOpMRTrrph7JJXQl8oMnLujEczuszo5JFfTYCja7Ph++gPEwRd/AIs5uswu4WfNhxkMEcsT6HQzzfH4B2Y+rzaziHAAKE2eQOA0UvvW8ht5orGugYLWxYefWRXKWGBYeqA1l7WYVi+1rxsiM7Fjdda/cGatz2VUekTLv pavel@nclab.com JuiceSSH"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMX0gXmoq7vErdy9lvydrcTEd8i8v+e6v7+kTe79z7QF4Xh2Vwqo3b/S6sNpsz8FUDCWlGFGC+9ZoknEvvE7ZuwrIGK9b6/D8LF3UMt/fYzlDVBEU9HjsUaKHNwoOza9wp4X7UoCYefYswPm07oxM/G1wg1BH/PNvi6UX5BqCRW/uxJ2BFOpbarEBddgwx014XVcbloXFOInJiILzDMBRwP51y7CfQ0caYM70TCF4+EHa1JGlF2cn0pKu8RG/n8Tfr04vbQ+KZTvSCZPmq3lVc18Bw1RGyHpbQIdg77wnubW3g+RIIgMPP1lO275W9sOgO86iYQ/twyxgmnX7z1ZcJ pavel@nclab.com"
     uid: "1109"
 
   - name: petr
@@ -120,5 +121,6 @@ write_files:
         AcceptEnv LANG LC_*
         Subsystem sftp /usr/lib/openssh/sftp-server
         UsePAM yes
+
 
 final_message: "<Cloud-init script was finished without error.>"
