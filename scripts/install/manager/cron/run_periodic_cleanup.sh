@@ -6,7 +6,8 @@ LOG_DIR=$HOME_DIR/log/periodic
 EMAIL_NOTIFICATION=1
 EMAIL_RECIPIENT="backup-notify@nclab.com"
 
-API_KEY="key-82bc17d7c1bf83756b2336c5730efaec"
+API_KEY_MAILGUN="key-82bc17d7c1bf83756b2336c5730efaec"
+API_KEY_MANDRILL="QktS-OXidPja-IC2vkxA5Q"
 EMAIL_FROM="no-reply@nclab.com"
 EMAIL_SUBJECT="Database Periodic Cleanup"
 
@@ -27,6 +28,32 @@ function run_periodic_cleanup {
 cd $HOME_DIR
 ./nclab db periodic
 sleep 1
+}
+
+function send_mail_mailgun {
+  curl -s --user "api:$API_KEY_MAILGUN" \
+      https://api.mailgun.net/v3/mg.nclab.com/messages \
+       -F from="NCLab Team <$EMAIL_FROM>" \
+       -F to="$EMAIL_RECIPIENT" \
+       -F subject="$EMAIL_SUBJECT" \
+       -F text="$TEXT"
+}
+
+function send_mail_mandrill {
+  BODY=\
+"From: NCLab Team <$EMAIL_FROM>
+To: $EMAIL_RECIPIENT
+Subject: $EMAIL_SUBJECT
+
+$TEXT
+.
+"
+  printf "$BODY" | \
+  curl -s --mail-from $EMAIL_FROM \
+        --mail-rcpt $EMAIL_RECIPIENT \
+        -u "nclab:$API_KEY_MANDRILL" \
+        smtp://smtp.mandrillapp.com \
+        -T -
 }
 
 mkdir -p $LOG_DIR
@@ -66,12 +93,8 @@ echo $TEXT > $LOG_PATH
 if [ $EMAIL_NOTIFICATION -eq 1 ]; then
     echo "Sending email..."
 
-    curl -s --user "api:$API_KEY" \
-        https://api.mailgun.net/v3/mg.nclab.com/messages \
-         -F from="NCLab Team <$EMAIL_FROM>" \
-         -F to="$EMAIL_RECIPIENT" \
-         -F subject="$EMAIL_SUBJECT" \
-         -F text="$TEXT"
+#    send_mail_mailgun
+    send_mail_mandrill
 fi
 
 echo "Done"
