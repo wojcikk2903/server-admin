@@ -11,7 +11,7 @@
 # Ex 1: Ungrouped hosts, specify before any group headers.
 
 [testgroup]
-10.136.56.85
+10.136.56.85:2022 ansible_user=root
 
 ## green.example.com
 ## blue.example.com
