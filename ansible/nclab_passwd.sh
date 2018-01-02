@@ -15,7 +15,7 @@ function send_mail {
 }
 
 #check old password
-echo "Insert your OLD password:"
+echo "Enter your OLD password:"
 IFS= read -rs PASSWD
 sudo -k
 
@@ -23,9 +23,9 @@ if sudo -lS &> /dev/null << EOF
 $PASSWD
 EOF
 then
-    echo 'Now insert your NEW password'
+    echo 'Now enter your NEW password'
     IFS= read -rs NEWPASSWD
-    echo 'Insert your NEW password again'
+    echo 'Enter your NEW password again'
     IFS= read -rs NEWPASSWD_SECOND
 
     #both new passwords have to match
@@ -33,7 +33,7 @@ then
         #create hash from the plaintext password
         NEWPASSWD_ENCRYPTED="`mkpasswd -m sha-512 $NEWPASSWD`"
         #save the hash temporarily
-        echo $NEWPASSWD_ENCRYPTED > "/tmp/$USER"
+        echo $NEWPASSWD_ENCRYPTED > "/tmp/new-password-$USER"
         #send email with the message for administrators
         send_mail
     else
