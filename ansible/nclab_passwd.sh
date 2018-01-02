@@ -2,9 +2,9 @@
 #you need packages: whois and heirloom-mailx
 
 function send_mail {
-    echo "User $USER wants to change his password" | mailx -v \
+    echo "Password change requested by user $USER. The new password can be found on pass.nclab.com in /tmp/new-password-$USER" | mailx -v \
     -r "ansible01@nclab.com" \
-    -s "Password change request" \
+    -s "Password change requested by $USER" \
     -S smtp="smtp.mandrillapp.com:587" \
     -S smtp-use-starttls \
     -S smtp-auth=login \
@@ -15,29 +15,31 @@ function send_mail {
 }
 
 #check old password
-echo "Enter your OLD password:"
-IFS= read -rs PASSWD
+echo -n "Enter your OLD password:   "
+
+#clean sudo cache
 sudo -k
 
-if sudo -lS &> /dev/null << EOF
-$PASSWD
-EOF
+if sudo -v &> /dev/null
 then
-    echo 'Now enter your NEW password'
+    echo 'Now enter your NEW password:'
     IFS= read -rs NEWPASSWD
-    echo 'Enter your NEW password again'
+    echo 'Enter your NEW password again:'
     IFS= read -rs NEWPASSWD_SECOND
 
     #both new passwords have to match
-    if ( NEWPASSWD==NEWPASSWD_SECOND ); then
+    if [ "$NEWPASSWD" = "$NEWPASSWD_SECOND" ]; then
         #create hash from the plaintext password
         NEWPASSWD_ENCRYPTED="`mkpasswd -m sha-512 $NEWPASSWD`"
         #save the hash temporarily
         echo $NEWPASSWD_ENCRYPTED > "/tmp/new-password-$USER"
+	#set permissions
+	chmod 600 /tmp/new-password-$USER
         #send email with the message for administrators
         send_mail
+	echo "Your request was sent to the administrators."
     else
-        echo "Passwords do not match"
+        echo "New passwords do not match."
     fi
 else 
     echo 'Wrong password.'
