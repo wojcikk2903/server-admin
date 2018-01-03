@@ -1,9 +1,0 @@
----
-- hosts: all
-  remote_user: muller
-  tasks:
-    - name: set timezone to Prague time
-      become: yes
-      become_method: sudo
-      timezone:
-        name: UTC
