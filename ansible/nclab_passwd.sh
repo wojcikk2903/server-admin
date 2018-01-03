@@ -15,12 +15,12 @@ function send_mail {
 }
 
 #check old password
-echo -n "Enter your OLD password:   "
+echo -n "Enter your OLD password"
 
 #clean sudo cache
 sudo -k
 
-if sudo -v &> /dev/null
+if sudo -v -p: &> /dev/null
 then
     echo 'Now enter your NEW password:'
     IFS= read -rs NEWPASSWD
