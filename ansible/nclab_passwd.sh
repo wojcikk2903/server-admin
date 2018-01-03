@@ -14,18 +14,17 @@ function send_mail {
      monitoring-alerts@nclab.com
 }
 
-#check old password
-echo -n "Enter your OLD password:   "
-
 #clean sudo cache
 sudo -k
 
-if sudo -v &> /dev/null
+if sudo -v -p 'Enter your OLD password: '
 then
-    echo 'Now enter your NEW password:'
+    echo -n 'Now enter your NEW password: '
     IFS= read -rs NEWPASSWD
-    echo 'Enter your NEW password again:'
+    echo
+    echo -n 'Enter your NEW password again: '
     IFS= read -rs NEWPASSWD_SECOND
+    echo
 
     #both new passwords have to match
     if [ "$NEWPASSWD" = "$NEWPASSWD_SECOND" ]; then
