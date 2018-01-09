@@ -13,6 +13,19 @@
      expires: 1
      shell: /usr/sbin/nologin
 
+  - name: delete user's SSH key from root/.ssh/authorized_keys
+    authorized_key:
+     user: root
+     state: absent
+     key: "{{ lookup('file', '{{ username }}.pub') }}"
+
+  - name: delete user's SSH key from lab/.ssh/authorized_keys
+    authorized_key:
+     user: lab
+     state: absent
+     key: "{{ lookup('file', '{{ username }}.pub') }}"
+
+
   - name: delete user's SSH key
     file:
      path: "/home/{{ username }}/.ssh/authorized_keys"
