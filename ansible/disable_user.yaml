@@ -10,7 +10,7 @@
   - name: disable user's account by expiration
     user:
      name: "{{ username }}"
-     expires: -1
+     expires: 1
      shell: /usr/sbin/nologin
 
   - name: delete user's SSH key
