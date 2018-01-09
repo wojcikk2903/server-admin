@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: yes
+  vars_prompt:
+  - name: username
+    prompt: Enter username
+    private: no
+
+  tasks:
+  - name: disable user's account by expiration
+    user:
+     name: "{{ username }}"
+     expires: -1
+     shell: /usr/sbin/nologin
+
+  - name: delete user's SSH key
+    file:
+     path: "/home/{{ username }}/.ssh/authorized_keys"
+     state: absent
