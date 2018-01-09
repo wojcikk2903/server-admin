@@ -11,7 +11,7 @@ An encrypted playbook will change root's password. First you have to create sha-
 This playbook will run initial config for a new droplet. It will set SSH server, timezone, remove UFW firewall,install basic SW and utilities and primarily add all NCLab users with their SSH pubkeys.
 
 ### disable_user.yaml
-This playbook will disable user's login to all servers, remove SSH pubkey from his home and from lab's + root's home directories. 
+This playbook will disable user's login to all servers, remove SSH pubkey from his home and from lab's + root's home directories. Save user's SSH pubkey into the file with name <username>.pub in the same location where you run ansible-playbook from. 
 
 ### nclab_passwd.sh
 This script is located on pass.nclab.com where you can run it as nclab_passwd command. It will verify your old password and from the new one it will make sha-512 hash and save it to the /tmp . All administrators will get email with password's change request.
