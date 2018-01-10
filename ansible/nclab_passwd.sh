@@ -2,9 +2,9 @@
 #you need packages: whois and heirloom-mailx
 
 function send_mail {
-    echo "Password change requested by user $USER. The new password can be found on pass.nclab.com in /tmp/new-password-$USER" | mailx -v \
-    -r "ansible01@nclab.com" \
-    -s "Password change requested by $USER" \
+    echo "User $USER changed his password using the nclab_passwd command." | mailx -v \
+    -r "pass@nclab.com" \
+    -s "User $USER changed his password using the nclab_passwd command." \
     -S smtp="smtp.mandrillapp.com:587" \
     -S smtp-use-starttls \
     -S smtp-auth=login \
@@ -30,16 +30,18 @@ then
     if [ "$NEWPASSWD" = "$NEWPASSWD_SECOND" ]; then
         #create hash from the plaintext password
         NEWPASSWD_ENCRYPTED="`mkpasswd -m sha-512 $NEWPASSWD`"
-        #save the hash temporarily
-        echo $NEWPASSWD_ENCRYPTED > "/tmp/new-password-$USER"
-	#set permissions
-	chmod 600 /tmp/new-password-$USER
+	
+	#set new password on all servers        
+	for i in `grep '^[a-z]' /etc/ansible/hosts|sort -u`;
+		do echo "## Changing your password on $i"; ssh -p 2022 -o StrictHostKeyChecking=no $i 'sudo usermod -p '\'"$NEWPASSWD_ENCRYPTED"\'' $USER';
+	done
+
         #send email with the message for administrators
         send_mail
-	echo "Your request was sent to the administrators."
     else
         echo "New passwords do not match."
     fi
 else 
     echo 'Wrong password.'
 fi
+
