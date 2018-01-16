@@ -9,7 +9,7 @@
         name: America/Los_Angeles
     - name: changing SSH server config
       template:
-            src: sshd_config_template
+            src: sshd_config_template.j2
             dest: /etc/ssh/sshd_config
             owner: root
             mode: '0600'
