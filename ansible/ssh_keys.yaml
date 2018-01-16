@@ -1,0 +1,68 @@
+---
+    - authorized_key:
+        user: pmuller
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCVTZSdl7oq8AMJy84ScIa3BCp5/I4SajnKDBOdoT9ju4EsOjd2hF5jRadQP9t9LGTEJfyN6zGD8n9GU0otmILx8Omv9Iq3mf5iavh7+qYNVn8uDTURpx5Ijq8LZ4JVPKjDVub3aRkYdDBpernWme0XGyP0FFrD9lnsmNxnHkCOmBx2McJItDk10oW9xQn0nUQGbjOisq789hy5YwlNCHXZMr0xYshY6lQDahmcxzBhWYOdIOh8DHaNche80ksTLwCuyuA2Sc3AHMlqegApjIWxIaHs0MJz0aGFP3907chRYHehMgdNkeTAk"
+
+    - authorized_key:
+        user: alex
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJwXjjlM60mJUusUB/4XmYZhUvibHXuICO+ood8IjCJ7AhBAEdiiOnrVAPObp6kJlNUc5evrhdVi/E0Mw9Whkedh+Rkzgwtrfja08wNQy/VTL9+XiZg69twMHiT9NKQi3D+Axvg73QvGscS0LIeDeWtIJ3QfT8Ijn7oyoSM0ZTL2Cd3vaqIuNT/5nfMKASexibMJwWdPwIUaEvjpHoWG+0AGtxCTB8M4eqZiBGLLvflBs92FufeRwkYspMmhqFQjX607K+om24UnlZkrKaqiyUgvZRqMpRiYab3agOkb85x9e+8DWmN1s4Df4zIz0smk9h+DkJ5Vx9GJTTw9RtMqrP deavyinc@gmail.com"
+
+    - authorized_key:
+        user: andrey
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjsQa+lN5r1O9SSbR9eGX0XR+Z1zfHbxFhmrzfVNZGxBhBwmWW6EPtWrbQASUa2giVwMrZcRImnpoit5mLVd8a0JLaim87WmlYTZioWaPYeDdQ9n0ewMAjPG2YPilF2WYn+DdUEapnPX0At3LCME+T2V0oPRzcxg8jPcbniIZH9Mr61pr+f6a/+FNePZKD86QceTpZreIMxcqUU6L2Iov/D1ZdD0V/mtkKpBbL2qEPCQLY9ahpHjXmU8Zz8h1W+pi2HPJgtPl4o9mIc3zvZdwQVI+58AiRnZDB4GcN+24QvuveHpfOffj4wPLsYgaTOmjOoaTQTTUAjy3KgANKdDMj andrey@nclab.com"
+
+    - authorized_key:
+        user: bartek
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC29fBmQxcp7L/dMB50i2AvZjVx4r4aH/GY/Gm0AeFBdm98cYORE93+cec89urQK//SyvUSZDpc/EWZbCNxhHCXGFbObMew/U9jY+X+a5IalZsw+g7JWcFqUtvazLmAem4xUgVM9CLzPFCWXCfxvubpz/yfBIqJ0O+gfa+bPiQp7i+zk80gJ7fxALo1P6lJ3mopXcTW30vnKjT953BwcIctgSo0AfN+48IFjBT7E1zA4YxFPdXiHi/jxZYhanLarfVhsEsnDs6nRv7Z90kFyMxBjMxdz4cK2vXUHZktiDAzB+qQFdFWP7DS4i85J0tau4YD/IGvy+QR3rKbb8E4uZBPxlK/iiuldRJGyaWn6W71ar3IdYm1wOBliLqatw2y85i91cBdZ/8bCkk42va1/1cPIWMqK0f+uRCxA85z1fAlyX9//Cx/FmtMSWA5vU6VmcT9VBP2td03iSEtZJ3llsfbmSUKO/q1EmTUMboK1yV8M0zs7U3LwfZmqSXZWvWbv28j61/sqgPPa27NVRGIHLW6ibbHiCgDCPx9OpN8fJidu0eAO4AqViVit9yNjDAGnDic3peGmDhDqQLF0Mktb/PbKcNts9gnvLZoBRKWdqYxAG1MuI+RSTjOuc6N+qpgl2fJciQFhAeAIRW49IoLxyW7g3Z2amWyL7003AiNHMhapQ== filonbar@gmail.com"
+
+    - authorized_key:
+        user: bjech
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAoPs4D/iOriypG+kh3/aDkrXhtG2DTDACdaExliuB6MGsZhmyNdnr9tha/9n4RAHvIbqpEkdmRFTNtBXzZ7Dwv5gfJ8IZ8N/Ghj/70rKrdx+MqrjAF/qfi5zl5BmMZ74q8EwkWDOXfoUDDNSTFQJsnw0/UzmQXUPJYLrIfsBbIHiEdz4ltMGjSiWKKZYeuQFx+N/nBCbk1sp1zc+VAKyIVOE1VQrWwgyjl7kX8A8iPapX0epNzOcxZ3X6A494wiGbs8+jpi74Bi8Dg0yOuAPv1PeoZQjwbaQCzo42rVk5Q0vNRtJu7Dy37a9/Fn7GTGG5+cdvU7zHTcHT7cS/ngsMHQ== bjech"
+
+    - authorized_key:
+        user: martin
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxQDyKz7LTJdTqyxsLeANoh6hFxu5rPQBKgATD3zpk0en+EdkyqFCeuYWNoFMCS3YM2TWkhCcM0iq4q7KluBGz8lxGZvxG8Dqupx1jlb52sBqdJoVxtD47HPCCQBNiVhBNzeko6SLVXVZlUda1LgqxFe8onBBjvTC1+aMKkTiIlp+J8KaaeKsoHuU3fa5hw/YCCSmPRAW7uilIZlc9JxznPyJ84WGmFDmfqHleO2U2bGnB/2LvUQaUG5WqHdZTRwufOqJvBuvvfNXxZ+kFHUzIH4kh7QnaB8vpnyYJZmbS4JfhA+63WHlDqbJo2osebtWUVbEC3+5axUj4lc5+wdCP martin@nclab.com"
+
+    - authorized_key:
+        user: pavel
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXKznb6vvJM4HRzWqWHxONUaUptdh+lAA93xSqfhpGJeJZMzRk/DhKs02LjED7yV6ADZsmg3IjhJh7uiRBdO72LlxUp+fgkLaikj5pHlTRUDGeOqJz3MPhA1TJCnpSyEAB4dBlGc5F3vlZ3Rgd3DpEEXVJd/JrB3CaPa39J8l1mJW5xHJ24Ic71pqx1jCVszCdqSNWAKUtU6uBuJl1uZv7SVz6gud6qUPt2E2fmUlVyo4cWFMGhBc0Z9wqtneaU5bzWu8jAr6MthG/oja8yVlnhrBocsfPcHtfeBGmkPyxdZ8SkkmEEnt3cnzwoTwgzfhqnn7q58VFfhiDdNWMwImN pavel@nclab.com
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLK2ihxOQ7Csiie9AHcJ4RFJU2Ab2U8/5wIx7HFUsasR5zpIeVjDtKl/2WuKFQCpM0H+TkcGk4TNsZLheJNAiJwXnj/yeEOqwLILR0KviHtx1UoeyF7MRFFmvtTHR2jVL7EzYv2fz4RKW/C2O9kuL7ZcNgPEzHD7ISRKj0+M2yC8wZJw4/jOpMRTrrph7JJXQl8oMnLujEczuszo5JFfTYCja7Ph++gPEwRd/AIs5uswu4WfNhxkMEcsT6HQzzfH4B2Y+rzaziHAAKE2eQOA0UvvW8ht5orGugYLWxYefWRXKWGBYeqA1l7WYVi+1rxsiM7Fjdda/cGatz2VUekTLv pavel@nclab.com JuiceSSH
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMX0gXmoq7vErdy9lvydrcTEd8i8v+e6v7+kTe79z7QF4Xh2Vwqo3b/S6sNpsz8FUDCWlGFGC+9ZoknEvvE7ZuwrIGK9b6/D8LF3UMt/fYzlDVBEU9HjsUaKHNwoOza9wp4X7UoCYefYswPm07oxM/G1wg1BH/PNvi6UX5BqCRW/uxJ2BFOpbarEBddgwx014XVcbloXFOInJiILzDMBRwP51y7CfQ0caYM70TCF4+EHa1JGlF2cn0pKu8RG/n8Tfr04vbQ+KZTvSCZPmq3lVc18Bw1RGyHpbQIdg77wnubW3g+RIIgMPP1lO275W9sOgO86iYQ/twyxgmnX7z1ZcJ pavel@nclab.com"
+
+    - authorized_key:
+        user: petr
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDN93ThmdhjITFZKFikLyAUJzu3Q1wBUtOWhBFVeE/Yq6mJ+OWcvE2otvmvHj/kPb2Hy6U+3hRRogJ5o0CkKQE/JnXZddwsJ4HkHTwdHpxeeFVSyfpAx9nU61fMLfagzYoxscgEXK9XEFXdgpg3ByI4/lp3KeMwc8rHLS6rXork0x4WPsXGftxsQ7Sg0mSgzjus6vHfHaN0LBR5sNUDmzMPnxoH1QSL4rZimE2KGmeyyUspXHvl9cov88XFTekcsFuS9z9QMktwMnP0/jK1mqZKaCqxn8teUK+Is80Og985yNxROtz+lLGc9h7Gi9D/FdrNktPK3RtyCFDWzOXHAyf3 lukas.petr.cz@gmail.com"
+
+    - authorized_key:
+        user: sheila
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAzuWuxj3mKMHExDQYDrQYxX/8Z/1J53nblVFrpfKB4rPoqRHCHmZ9Pz6pohp8EDY2W/JNDDRTQgd+CPa13t/HF+tfiaE1Lwxvrqtlyz8AxwNPvOwuLXoaq3SsAKhe70gUuKG7He6Croz2ezpVZLZ0CYz8DkkFfw/6s8mlyip6Nw99xt6Us++jd1faGXhKUpYQwVp3QxXHhaaaMk7sOi9IPdP3Fur5motolYx02TYpPfuVMHx+bCW3dkHn/yspMP0234/NWNZO+JeRnQfzK6djZ7dVNPgwT2lyzu2awqWIgTd3ThZOkzktf4J6Pz93AUUB6qugj1nghpvtl/7x5AC7Qw== sheila@nclab.com"
+
+    - authorized_key:
+        user: vk
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6IZ14WTyWzi7Aj7ez7MYBn8QSH6CheDGf0fLrVBZt9rEAFs8PIywM0WVCBbTdh4Yj44Z4K2pqsEarm0qyEYWR3wrg9361VMCERNDRPSrcIOTdc/VEtUr0fXhgs+2rp0ojW/yTPmsLvzdS8KJ/NhMvDNP3rYG/FCGgPaYVZLBW0bcwMoeyPfVJf8peVkAMuXxfMFAW5pZRM1RgelJ32n4R8zyQZ4/713N9bJ3ajzv9BBrzJsOUm9My3P77/bDbw0OkuaNdPZtDqgNRrg24ac2vG5CxXTsT2tHdCkLEmWDR8J5Tpw84zmfOxCEXJ8uaSJQ/zOeOsl5BUhE6KVlC6gm3 vk@nclab.com"
+
+    - authorized_key:
+        user: wojcikk
+        state: present
+        manage_dir: yes
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDM/IDAqxiaPEtmR/IGQ498vmiMlPIcAkZ/IU0bZ9s8DCyiCZy6A+f0NC4jkXJQg8ArjQj95OO83oc4YZ+qrMG4F5YQMh6EqnDWcSGbzCQPAk/CzzlkRLueaYbf146AIGCxIXQP3PwFVGBefvH9sTWlVm06dp3oMU3ZoutOezAs1DyQ4vT4DLH1ggUcuwaiMN/mZ48QCqlCH973YeRMQk6PpemERRnTvMd8S0hQcYOtXv/5d8/2YFpG0hjhpRikDLf+TY50xiTk6j4Kxy+v4pUXRbMOsP8zXxhgxiovTm9H4POuW7MG0e1s3uK2oeaUikcTLcIXtOlwZKjxv6zmr6GZ wojcikk@wojcikk-sy"
