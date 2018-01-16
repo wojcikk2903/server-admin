@@ -42,5 +42,6 @@
         name: ssh
         state: restarted
 
-    - import_playbook: users&passwords.yaml
-    - import_playbook: ssh_keys.yaml
+- import_playbook: users&passwords.yaml
+- import_playbook: ssh_keys.yaml
+
