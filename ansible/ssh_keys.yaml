@@ -9,7 +9,7 @@
         user: pmuller
         state: present
         manage_dir: yes
-        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCVTZSdl7oq8AMJy84ScIa3BCp5/I4SajnKDBOdoT9ju4EsOjd2hF5jRadQP9t9LGTEJfyN6zGD8n9GU0otmILx8Omv9Iq3mf5iavh7+qYNVn8uDTURpx5Ijq8LZ4JVPKjDVub3aRkYdDBpernWme0XGyP0FFrD9lnsmNxnHkCOmBx2McJItDk10oW9xQn0nUQGbjOisq789hy5YwlNCHXZMr0xYshY6lQDahmcxzBhWYOdIOh8DHaNche80ksTLwCuyuA2Sc3AHMlqegApjIWxIaHs0MJz0aGFP3907chRYHehMgdNkeTAk"
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCVTZSdl7oq8AMJy84ScIa3BCp5/I4SajnKDBOdoT9ju4EsOjd2hF5jRadQP9t9LGTEJfyN6zGD8n9GU0otmILx8Omv9Iq3mf5iavh7+qYNVn8uDTURpx5Ijq8LZ4JVPKjDVub3aRkYdDBpernWme0XGyP0FFrD9lnsmNxnHkCOmBx2McJItDk10oW9xQn0nUQGbjOisq789hy5YwlNCHXZMr0xYshY6lQDahmcxzBhWYOdIOh8DHaNche80ksTLwCuyuA2Sc3AHMlqegApjIWxIaHs0MJz0aGFP3907chRYHehMgdNkeTAkIW7E0cfflVgVofgDUsPN9IXXdP1SZph pmuller@nclab.com"
 
     - name: SSH key alex
       authorized_key:
