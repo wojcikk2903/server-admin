@@ -7,6 +7,7 @@ echo "[web]" >> $HOSTS_PATH
 doctl compute droplet list --no-header --tag-name web --format Name >> $HOSTS_PATH
 
 echo "[production]" >> $HOSTS_PATH
+echo "villain.prod.rno1.hw.nclab.com" >> $HOSTS_PATH
 doctl compute droplet list --no-header --tag-name production --format Name >> $HOSTS_PATH
 
 echo "[development]" >> $HOSTS_PATH
