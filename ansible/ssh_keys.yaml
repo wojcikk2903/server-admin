@@ -32,13 +32,6 @@
         manage_dir: yes
         key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC29fBmQxcp7L/dMB50i2AvZjVx4r4aH/GY/Gm0AeFBdm98cYORE93+cec89urQK//SyvUSZDpc/EWZbCNxhHCXGFbObMew/U9jY+X+a5IalZsw+g7JWcFqUtvazLmAem4xUgVM9CLzPFCWXCfxvubpz/yfBIqJ0O+gfa+bPiQp7i+zk80gJ7fxALo1P6lJ3mopXcTW30vnKjT953BwcIctgSo0AfN+48IFjBT7E1zA4YxFPdXiHi/jxZYhanLarfVhsEsnDs6nRv7Z90kFyMxBjMxdz4cK2vXUHZktiDAzB+qQFdFWP7DS4i85J0tau4YD/IGvy+QR3rKbb8E4uZBPxlK/iiuldRJGyaWn6W71ar3IdYm1wOBliLqatw2y85i91cBdZ/8bCkk42va1/1cPIWMqK0f+uRCxA85z1fAlyX9//Cx/FmtMSWA5vU6VmcT9VBP2td03iSEtZJ3llsfbmSUKO/q1EmTUMboK1yV8M0zs7U3LwfZmqSXZWvWbv28j61/sqgPPa27NVRGIHLW6ibbHiCgDCPx9OpN8fJidu0eAO4AqViVit9yNjDAGnDic3peGmDhDqQLF0Mktb/PbKcNts9gnvLZoBRKWdqYxAG1MuI+RSTjOuc6N+qpgl2fJciQFhAeAIRW49IoLxyW7g3Z2amWyL7003AiNHMhapQ== filonbar@gmail.com"
 
-    - name: SSH key bjech
-      authorized_key:
-        user: bjech
-        state: present
-        manage_dir: yes
-        key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAoPs4D/iOriypG+kh3/aDkrXhtG2DTDACdaExliuB6MGsZhmyNdnr9tha/9n4RAHvIbqpEkdmRFTNtBXzZ7Dwv5gfJ8IZ8N/Ghj/70rKrdx+MqrjAF/qfi5zl5BmMZ74q8EwkWDOXfoUDDNSTFQJsnw0/UzmQXUPJYLrIfsBbIHiEdz4ltMGjSiWKKZYeuQFx+N/nBCbk1sp1zc+VAKyIVOE1VQrWwgyjl7kX8A8iPapX0epNzOcxZ3X6A494wiGbs8+jpi74Bi8Dg0yOuAPv1PeoZQjwbaQCzo42rVk5Q0vNRtJu7Dy37a9/Fn7GTGG5+cdvU7zHTcHT7cS/ngsMHQ== bjech"
-
     - name: SSH key martin
       authorized_key:
         user: martin
