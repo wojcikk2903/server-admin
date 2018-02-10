@@ -11,6 +11,10 @@ upstream frontends {
     server 127.0.0.1:8007;
 }
 
+upstream viewerfrontends {
+    server 127.0.0.1:8010;
+}
+
 upstream adminfrontend {
     server 127.0.0.1:5000;
 }
@@ -128,6 +132,74 @@ server {
         proxy_set_header X-Scheme $scheme;
         proxy_read_timeout 3600;
         proxy_redirect off;
+    }
+}
+
+# this part takes care of nclab viewer only - matches subdomain and passes it as a root to viewer frontend
+server {
+    listen 443 default ssl;
+    server_name 	  viewer.nclab.com;
+
+    ssl_stapling on;
+    ssl_stapling_verify on;
+
+    ssl_certificate        /etc/ssl/certs/STAR_nclab_com.crt;
+    ssl_certificate_key    /etc/ssl/private/STAR_nclab_com.key;
+
+    add_header Strict-Transport-Security max-age=31536000;
+
+    client_max_body_size 50M;
+
+    set $root /home/lab/core/static;
+
+    error_page 404 /error/404.html;
+    error_page 502 /error/maintenance.html;
+
+    set $setxreal $http_x_real_ip;
+    if ($http_x_real_ip = "") {
+        set $setxreal $remote_addr;
+    }
+
+    location / {
+        proxy_pass http://viewerfrontends;
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+
+        #add_header X-Testing $setxreal;
+        proxy_set_header X-Real-IP $setxreal;
+
+        proxy_set_header X-Scheme $scheme;
+        proxy_read_timeout 3600;
+        proxy_redirect off;
+        add_header 'Access-Control-Allow-Origin' '*';
+    }
+
+    # static content is served directly
+    location ^~ /static/ {
+        alias $root/;
+
+	location ~* {
+            add_header 'Access-Control-Allow-Origin' '*';
+        }
+
+    }
+
+    # we should probably rewrite it back to wp error pages
+    location ~ ^/error/(.*).html$ {
+        root $root/resources/html/;
+    }
+
+    # every browser asks for favicon
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+        rewrite (.*) /static/img/femhub/favicon.ico;
+    }
+
+    location = /robots.txt {
+        log_not_found off;
+        access_log off;
+        rewrite (.*) /static/robots.txt;
     }
 }
 
