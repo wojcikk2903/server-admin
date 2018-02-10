@@ -137,7 +137,7 @@ server {
 
 # this part takes care of nclab viewer only - matches subdomain and passes it as a root to viewer frontend
 server {
-    listen 443 default ssl;
+    listen 443 ssl;
     server_name 	  viewer.nclab.com;
 
     ssl_stapling on;
