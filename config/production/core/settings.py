@@ -47,12 +47,14 @@ UPDATE_CHROOT = 'ssh distribution@int.distro01.prod.nyc1.do.nclab.com ' \
 WEBSITE_URL = 'https://nclab.com'
 ADMIN_URL = 'https://admin.nclab.com'
 APP_URL = 'https://desktop.nclab.com'
+VIEWER_URL = 'https://desktop.nclab.com'
 LOGIN_URL = 'https://nclab.com/login/'
 
 CDN = ["https://st.nclab.com", "https://st2.nclab.com", "https://st3.nclab.com"]
 CDN_WEB = ["https://stweb.nclab.com", "https://stweb2.nclab.com", "https://stweb3.nclab.com"]
 
 PORTS = [8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007]
+VIEWER_PORTS = [8010]
 DEBUG = False
 VALIDATE_EMAILS = True
 DAEMON = True
