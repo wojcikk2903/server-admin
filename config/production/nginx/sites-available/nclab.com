@@ -50,7 +50,7 @@ server {
 
 # this part takes care of nclab desktop only - matches subdomain and passes it as a root to frontend
 server {
-    listen 443 default ssl;
+    listen 443 default ssl http2;
     server_name 	  desktop.nclab.com;
 
     ssl_stapling on;
@@ -59,7 +59,7 @@ server {
     ssl_certificate        /etc/ssl/certs/STAR_nclab_com.crt;
     ssl_certificate_key    /etc/ssl/private/STAR_nclab_com.key;
 
-    add_header Strict-Transport-Security max-age=31536000;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
 
     client_max_body_size 50M;
 
@@ -137,7 +137,7 @@ server {
 
 # this part takes care of nclab viewer only - matches subdomain and passes it as a root to viewer frontend
 server {
-    listen 443 ssl;
+    listen 443 ssl http2;
     server_name 	  viewer.nclab.com;
 
     ssl_stapling on;
@@ -146,7 +146,7 @@ server {
     ssl_certificate        /etc/ssl/certs/STAR_nclab_com.crt;
     ssl_certificate_key    /etc/ssl/private/STAR_nclab_com.key;
 
-    add_header Strict-Transport-Security max-age=31536000;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
 
     client_max_body_size 50M;
 
@@ -205,7 +205,7 @@ server {
 
 # this part takes care of nclab admin only - matches subdomain and passes it as a root to frontend
 server {
-    listen 443 ssl;
+    listen 443 ssl http2;
     server_name           admin.nclab.com;
 
     # no OCSP stapling, self-signed certificate
@@ -215,7 +215,7 @@ server {
     ssl_certificate        /etc/ssl/certs/STAR_nclab_com.crt;
     ssl_certificate_key    /etc/ssl/private/STAR_nclab_com.key;
 
-    add_header Strict-Transport-Security max-age=31536000;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
 
     client_max_body_size 50M;
 
