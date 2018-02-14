@@ -1,0 +1,27 @@
+---
+- hosts: all
+  #remote_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Copy custom bashrc file to home directory for all users
+      copy:
+        src: custom_bashrc.j2
+        dest: "/home/{{ item }}/.bashrc"
+        owner: "{{ item }}"
+        group: "{{ item }}"
+        mode: 0644
+      with_items:
+        - alex
+        - andrey
+        - bartek
+        - lab
+        - martin
+        - jesus
+        - pavel
+        - petr
+        - pmuller
+        - sheila
+        - vk
+        - wojcikk
+
