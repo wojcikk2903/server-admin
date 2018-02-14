@@ -44,4 +44,5 @@
 
 - import_playbook: users_and_passwords.yaml
 - import_playbook: ssh_keys.yaml
+- import_playbook: custom_bashrc.yaml
 
