@@ -1,7 +1,8 @@
 ---
-- hosts: all
-  become: yes
-  become_method: sudo
+- hosts: test
+  remote_user: root
+  #become: yes
+  #become_method: sudo
   tasks:
     - name: Copy custom bashrc file to home directory for all users on WEB01.PROD
       copy:
@@ -16,7 +17,6 @@
         - bartek
         - lab
         - martin
-        - jesus
         - pavel
         - petr
         - pmuller
@@ -38,7 +38,6 @@
         - bartek
         - lab
         - martin
-        - jesus
         - pavel
         - petr
         - pmuller
