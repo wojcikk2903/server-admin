@@ -8,6 +8,11 @@ case $- in
       *) return;;
 esac
 
+if [ $(hostname -f) == "web01.prod.nyc1.do.nclab.com" ]; then
+	umask 003
+fi
+
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -56,11 +61,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+#get hostname in the form like "server.prod"
 MYHOSTNAME=$(hostname -f |sed 's/\.nyc1.do.nclab.com//')
+#get shortcut of enviroment
+ENVIROMENT="$(hostname -f | awk -F. '{print $2}')"
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@$MYHOSTNAME\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	if [ "$ENVIROMENT" == "prod" ]; then
+		#red color prompt
+		PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@$MYHOSTNAME\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	else
+		#green
+		PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@$MYHOSTNAME\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	fi
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@$MYHOSTNAME:\w\$ '
+	#without color
+	PS1='${debian_chroot:+($debian_chroot)}\u@$MYHOSTNAME:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
