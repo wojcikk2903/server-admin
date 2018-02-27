@@ -1,19 +1,32 @@
 """NCLab core configuration. """
 
-MAILGUN_DOMAIN = "mg.nclab.com"
-MAILGUN_API_KEY = "key-f08f536e884e408aa5f579328dd353cc"
+# Mailgun settings
+#MAILGUN_DOMAIN = "mg.nclab.com"
+#MAILGUN_API_KEY = "key-82bc17d7c1bf83756b2336c5730efaec"
+#
+#EMAIL_HOST = 'smtp.mailgun.org'  # '10.8.3.1'
+#EMAIL_PORT = 25
+#EMAIL_SUBJECT_PREFIX = '[NCLab]'
+#EMAIL_USER = 'postmaster@mg.nclab.com'
+#EMAIL_PASS = 'ghT68s9#$ghio_'
 
-EMAIL_HOST = 'smtp.mailgun.org'  # '10.8.3.1'
-EMAIL_PORT = 25
+MANDRILL_API_KEY         = "yJkCvydLZKy4mcMllgfVRw"
+GOOGLE_ANALYTICS_API_KEY = 'UA-15768242-2'
+MOUSEFLOW_API_KEY        = 'e95a4cec-2af0-4b27-9eb6-6471389b8f8c'
+
+# Mandrill settings
+EMAIL_HOST           = 'smtp.mandrillapp.com'
+EMAIL_PORT           = 587
 EMAIL_SUBJECT_PREFIX = '[NCLab]'
-EMAIL_USER = 'postmaster@mg.nclab.com'
-EMAIL_PASS = '0a8a03da1ae49717f3e71d38ad4fa995'
+EMAIL_USER           = 'NCLab'
+EMAIL_PASS           = 'yJkCvydLZKy4mcMllgfVRw'
+
 
 DEFAULT_FROM_EMAIL = 'NCLab Team <office@nclab.com>'  # 'NCLab Team <no-reply@nclab.com>'
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 BUGREPORT_EMAIL = 'feedback@nclab.com'
 ERRORS_TO_EMAIL = 'app-alerts@nclab.com'
-SUPPORT_EMAIL = 'office@nclab.com'
+SUPPORT_EMAIL = 'sales@nclab.com'
 OUTBOX_EMAIL = 'outbox@nclab.com'
 COURSE_FEEDBACK_EMAIL = 'coursefeedback@nclab.com'
 ADMIN_NOTIFY_EMAIL = 'admin-notify@nclab.com'
@@ -28,10 +41,12 @@ DATABASE = {
     'host': 'mongodb://int.mongo01.prod.nyc1.do.nclab.com,int.mongo02.prod.nyc1.do.nclab.com,'
             'int.mongo03.prod.nyc1.do.nclab.com',
     'db': 'nclab',
-    # 'read_preference': 'secondaryPreferred',
+    #'read_preference': 'secondaryPreferred',
     'replica_set': 'nclabmongo',
     'username': 'ap_core',
-    'password': ''
+    'password': 'ah%$_45HJUKL34',
+    'ssl': True,
+    'ssl_ca_certs': '/etc/ssl/mongo-CA-cert.crt'
     # 'port': 27017
 }
 
@@ -47,7 +62,7 @@ UPDATE_CHROOT = 'ssh distribution@int.distro01.prod.nyc1.do.nclab.com ' \
 WEBSITE_URL = 'https://nclab.com'
 ADMIN_URL = 'https://admin.nclab.com'
 APP_URL = 'https://desktop.nclab.com'
-VIEWER_URL = 'https://desktop.nclab.com'
+VIEWER_URL = 'https://viewer.nclab.com'
 LOGIN_URL = 'https://nclab.com/login/'
 
 CDN = ["https://st.nclab.com", "https://st2.nclab.com", "https://st3.nclab.com"]
@@ -75,10 +90,15 @@ IOLOOP_ALARM_TIME = 60
 
 SERVICES = [
     # WHEN YOU ARE COMMENTING NODES OUT PLEASE WRITE DOWN THE REASON
-    {'id': 'node1', 'hostname': 'int.node01.prod.nyc1.do.nclab.com', 'user': 'lab', 'port': 9000, 'name': 'Node 1',
-     'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
-     'free': True, 'load': 1},
-    {'id': 'node2', 'hostname': 'int.node02.prod.nyc1.do.nclab.com', 'user': 'lab', 'port': 9000, 'name': 'Node 2',
-     'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
-     'free': True, 'load': 1},
+   {'id': 'node01', 'hostname': 'int.compute01.prod.nyc1.do.nclab.com', 'user': 'lab', 'port': 9000, 'name': 'Node 1',
+    'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
+    'free': True, 'load': 1},
+   {'id': 'node02', 'hostname': 'int.compute02.prod.nyc1.do.nclab.com', 'user': 'lab', 'port': 9000, 'name': 'Node 2',
+    'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
+    'free': True, 'load': 1},
+   {'id': 'node03', 'hostname': 'int.compute03.prod.nyc1.do.nclab.com', 'user': 'lab', 'port': 9000, 'name': 'Node 3',
+    'engines': ['Python', 'JavaScript', 'Octave', 'Latex', 'R', 'Python3', 'OpenSCAD'], 'commercial': True,
+    'free': True, 'load': 1},
 ]
+
+URL_MIME_TYPES_WHITELIST = ['image/jpeg', 'image/svg', 'image/svg+xml']
