@@ -4,6 +4,9 @@
   become: yes
   become_method: sudo
   tasks:
+    - name: set locales to UTF8
+      shell: update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
     - name: set timezone to Pacific
       timezone:
         name: America/Los_Angeles
