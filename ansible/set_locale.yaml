@@ -7,9 +7,10 @@
     - name: Check if LC_ALL is set
       shell: cat /etc/default/locale | grep LC_ALL
       register: loc
+      ignore_errors: True
 
     - name: Set LC_ALL locale if it does not exist yet
       shell: sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-      when: loc.stdout != LC_ALL=en_US.UTF-8
-
+      when: loc.stdout is failed
+ 
 
