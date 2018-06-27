@@ -1,0 +1,38 @@
+---
+- hosts: core03.dev.nyc1.do.nclab.com
+  #remote_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Add zabbix repository for Ubuntu Bionic
+      apt:
+        deb: http://repo.zabbix.com/zabbix/3.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.4-1+bionic_all.deb
+      when: ansible_distribution_release == "bionic"
+
+    - name: Add zabbix repository for Ubuntu Xenial
+      apt:
+        deb: http://repo.zabbix.com/zabbix/3.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.4-1+xenial_all.deb
+      when: ansible_distribution_release == "xenial"
+
+    - name: Update cache and install zabbix-agent
+      apt:
+        name: zabbix-agent
+        state: present
+        update_cache: yes
+
+    - name: Check if PSK does not exist
+      stat:
+        path: /etc/zabbix/sslkey.psk
+      register: psk
+
+    - name: Create a new PSK if needed
+      shell: openssl rand -hex 32 > /etc/zabbix/sslkey.psk
+      when: psk.stat.exists == False 
+
+    - name: set owner and permission for PSK
+      file:
+        path: /etc/zabbix/sslkey.psk
+        owner: zabbix
+        group: zabbix
+        mode: 700
+
