@@ -1,6 +1,9 @@
 # Ansible
 There are all scripts and playbooks for Ansible
 
+### zabbix-agent-playbook folder
+Contains playbook & templates for installing and configuring zabbix-agent with TLS
+
 ### change_password_general.yaml
 When you get a request to change user's password, run this playbook. It will ask you for username and hash of encrypted password
 
