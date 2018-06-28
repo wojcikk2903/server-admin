@@ -35,4 +35,20 @@
         owner: zabbix
         group: zabbix
         mode: 700
+      when: psk.stat.exists == True
 
+    - name: copy zabbix config template to the target server
+      template:
+        src: template_agent.j2
+        dest: /etc/zabbix/zabbix_agent.conf
+        owner: zabbix
+        group: zabbix
+        backup: yes
+      notify:
+      - restart_zabbix_service
+
+  handlers:
+    - name: restart_zabbix_service
+      service:
+        name: zabbix-agent
+        state: restarted
