@@ -1,5 +1,5 @@
 ---
-- hosts: core03.dev.nyc1.do.nclab.com
+- hosts: compute03.dev.nyc1.do.nclab.com
   #remote_user: root
   become: yes
   become_method: sudo
@@ -34,13 +34,12 @@
         path: /etc/zabbix/sslkey.psk
         owner: zabbix
         group: zabbix
-        mode: 700
-      when: psk.stat.exists == True
+        mode: 0700
 
     - name: copy zabbix config template to the target server
       template:
         src: template_agent.j2
-        dest: /etc/zabbix/zabbix_agent.conf
+        dest: /etc/zabbix/zabbix_agentd.conf
         owner: zabbix
         group: zabbix
         backup: yes
@@ -56,7 +55,7 @@
       lineinfile:
         path: /etc/apt/apt.conf.d/20auto-upgrades
         regexp: '^(.*)APT::Periodic::Unattended-Upgrade(.*)$' 
-        line: 'APT::Periodic::Unattended-Upgrade "0"'
+        line: 'APT::Periodic::Unattended-Upgrade "0";'
 
     - name: create additional zabbix config for APT
       template:
@@ -66,6 +65,7 @@
         group: zabbix
       notify:
       - restart_zabbix_service
+
 
   handlers:
     - name: restart_zabbix_service

@@ -2,7 +2,7 @@
 TLSConnect=psk
 TLSAccept=psk
 TLSPSKFile=/etc/zabbix/sslkey.psk
-TLSPSKIdentity="{{ ansible_hostname }}NCLab2018"
+TLSPSKIdentity={{ ansible_hostname }}NCLab2018
 
 #PID and log options
 PidFile=/var/run/zabbix/zabbix_agentd.pid
@@ -11,8 +11,8 @@ LogFileSize=0
 
 #Server and client info
 Server=int.zabbix01.prod.nyc1.do.nclab.com
-ListenIP="{{ ansible_eth1.ipv4.address }}"
+ListenIP={{ ansible_eth1.ipv4.address }}
 ServerActive=int.zabbix01.prod.nyc1.do.nclab.com
-Hostname="{{ ansible_fqdn }}"
+Hostname={{ ansible_fqdn }}
 #include other conf files
 Include=/etc/zabbix/zabbix_agentd.d/*.conf
