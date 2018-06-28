@@ -47,6 +47,26 @@
       notify:
       - restart_zabbix_service
 
+    - name: enable periodic APT update
+      lineinfile:
+        path: /etc/apt/apt.conf.d/10periodic
+        line: 'APT::Periodic::Enable "1";'
+
+    - name: disable APT auto_upgrades
+      lineinfile:
+        path: /etc/apt/apt.conf.d/20auto-upgrades
+        regexp: '^(.*)APT::Periodic::Unattended-Upgrade(.*)$' 
+        line: 'APT::Periodic::Unattended-Upgrade "0"'
+
+    - name: create additional zabbix config for APT
+      template:
+        src: template_apt.j2
+        dest: /etc/zabbix/zabbix_agentd.d/apt.conf
+        owner: zabbix
+        group: zabbix
+      notify:
+      - restart_zabbix_service
+
   handlers:
     - name: restart_zabbix_service
       service:
