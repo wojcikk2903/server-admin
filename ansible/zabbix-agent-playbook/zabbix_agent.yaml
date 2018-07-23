@@ -1,8 +1,9 @@
 ---
-- hosts: compute03.dev.nyc1.do.nclab.com
+- hosts: distro02.prod.nyc1.do.nclab.com
   #remote_user: root
   become: yes
   become_method: sudo
+  gather_facts: True
   tasks:
     - name: Add zabbix repository for Ubuntu Bionic
       apt:
@@ -42,7 +43,6 @@
         dest: /etc/zabbix/zabbix_agentd.conf
         owner: zabbix
         group: zabbix
-        backup: yes
       notify:
       - restart_zabbix_service
 

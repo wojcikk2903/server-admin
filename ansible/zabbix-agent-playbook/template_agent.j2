@@ -11,7 +11,7 @@ LogFileSize=0
 
 #Server and client info
 Server=int.zabbix01.prod.nyc1.do.nclab.com
-ListenIP={{ ansible_eth1.ipv4.address }}
+ListenIP={{ ansible_all_ipv4_addresses[0] }}
 ServerActive=int.zabbix01.prod.nyc1.do.nclab.com
 Hostname={{ ansible_fqdn }}
 #include other conf files
