@@ -1,0 +1,35 @@
+---
+- hosts: docker
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: update APT repositories and install dependecies
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+        - 'apt-transport-https'
+        - 'ca-certificates'
+        - 'curl'
+        - 'software-properties-common'
+
+    - name: Add Docker’s official GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: add repository for Ubuntu Xenial 16.04
+      apt_repository:
+        repo: https://download.docker.com/linux/ubuntu xenial stable
+        update_cache: yes
+
+    - name: add repository for Ubuntu Bionic 18.04
+      apt_repository:
+        repo: https://download.docker.com/linux/ubuntu bionic stable
+        update_cache: yes
+
+    - name: install docker package
+      apt:
+        name: docker-ce
+        state: present
