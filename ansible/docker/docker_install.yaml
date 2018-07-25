@@ -21,15 +21,23 @@
 
     - name: add repository for Ubuntu Xenial 16.04
       apt_repository:
-        repo: https://download.docker.com/linux/ubuntu xenial stable
+        repo: deb https://download.docker.com/linux/ubuntu xenial stable
         update_cache: yes
+      when: ansible_distribution_release == "xenial"
 
     - name: add repository for Ubuntu Bionic 18.04
       apt_repository:
-        repo: https://download.docker.com/linux/ubuntu bionic stable
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
         update_cache: yes
+      when: ansible_distribution_release == "bionic"
 
     - name: install docker package
       apt:
         name: docker-ce
         state: present
+
+    - name: add user lab to the docker group
+      user:
+        name: lab
+        groups: docker
+        append: yes
