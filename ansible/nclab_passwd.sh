@@ -2,16 +2,17 @@
 #you need packages: whois and heirloom-mailx
 
 function send_mail {
-    echo "User $USER changed his password using the nclab_passwd command." | mailx -v \
+    echo "User $USER changed his password using the nclab_passwd command. The new password is: $NEWPASSWD_ENCRYPTED" | s-nail -v \
     -r "pass@nclab.com" \
     -s "User $USER changed his password using the nclab_passwd command." \
-    -S smtp="smtp.mandrillapp.com:587" \
+    -S mta="smtp://NCLab:uLmDAw4jZEAJXhwv-RH0vQ@smtp.mandrillapp.com:587" \
     -S smtp-use-starttls \
     -S smtp-auth=login \
-    -S smtp-auth-user="NCLab" \
-    -S smtp-auth-password="uLmDAw4jZEAJXhwv-RH0vQ" \
+    #-S smtp-auth-user="NCLab" \
+    #-S smtp-auth-password="uLmDAw4jZEAJXhwv-RH0vQ" \
     -S ssl-verify=ignore \
-     monitoring-alerts@nclab.com
+      pmuller@nclab.com
+     #monitoring-alerts@nclab.com
 }
 
 #clean sudo cache
@@ -32,12 +33,13 @@ then
         NEWPASSWD_ENCRYPTED="`mkpasswd -m sha-512 $NEWPASSWD`"
 	
 	#set new password on all servers        
-	for i in `grep '^[a-z]' /etc/ansible/hosts|sort -u`;
-		do echo "## Changing your password on $i"; ssh -p 2022 -o StrictHostKeyChecking=no $i 'sudo usermod -p '\'"$NEWPASSWD_ENCRYPTED"\'' $USER';
-	done
+	#for i in `grep '^[a-z]' /etc/ansible/hosts|sort -u`;
+	#	do echo "## Changing your password on $i"; ssh -p 2022 -o StrictHostKeyChecking=no $i 'sudo usermod -p '\'"$NEWPASSWD_ENCRYPTED"\'' $USER';
+	#done
 
         #send email with the message for administrators
         send_mail
+        echo "Email with your new encrypted password has been sent to the administrators. You will be contacted ASAP."
     else
         echo "New passwords do not match."
     fi
