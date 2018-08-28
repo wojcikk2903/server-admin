@@ -2,17 +2,16 @@
 #you need packages: whois and heirloom-mailx
 
 function send_mail {
-    echo "User $USER changed his password using the nclab_passwd command. The new password is: $NEWPASSWD_ENCRYPTED" | s-nail -v \
+    echo "User $USER changed his password using the nclab_passwd command. The new password is: $NEWPASSWD_ENCRYPTED" | s-nail  \
     -r "pass@nclab.com" \
     -s "User $USER changed his password using the nclab_passwd command." \
     -S mta="smtp://NCLab:uLmDAw4jZEAJXhwv-RH0vQ@smtp.mandrillapp.com:587" \
     -S smtp-use-starttls \
     -S smtp-auth=login \
+    -. monitoring-alerts@nclab.com
     #-S smtp-auth-user="NCLab" \
     #-S smtp-auth-password="uLmDAw4jZEAJXhwv-RH0vQ" \
-    -S ssl-verify=ignore \
-      pmuller@nclab.com
-     #monitoring-alerts@nclab.com
+    #-S ssl-verify=ignore \
 }
 
 #clean sudo cache
