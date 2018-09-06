@@ -1,5 +1,5 @@
 ---
-- hosts: zabbix02.prod.nyc1.do.nclab.com
+- hosts: postgres01.prod.nyc1.do.nclab.com
   #remote_user: root
   become: yes
   become_method: sudo
